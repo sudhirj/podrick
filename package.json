@@ -1,14 +1,14 @@
 {
-    "name": "squire",
+    "name": "podrick",
     "version": "0.0.0",
-    "description": "Squire is a PubSub system that works via HTTP Server Sent Events (SSE). Backed by Redis",
+    "description": "Podrick is a PubSub system that works via HTTP Server Sent Events (SSE). Backed by Redis",
     "main": "index.js",
     "scripts": {
         "test": "test"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/sudhirj/squire.git"
+        "url": "https://github.com/sudhirj/podrick.git"
     },
     "keywords": [
         "sse",
@@ -21,9 +21,9 @@
     "author": "Sudhir Jonathan",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/sudhirj/squire/issues"
+        "url": "https://github.com/sudhirj/podrick/issues"
     },
-    "homepage": "https://github.com/sudhirj/squire",
+    "homepage": "https://github.com/sudhirj/podrick",
     "dependencies": {
         "redis": "*",
         "hiredis": "*"
