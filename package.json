@@ -1,0 +1,31 @@
+{
+    "name": "squire",
+    "version": "0.0.0",
+    "description": "Squire is a PubSub system that works via HTTP Server Sent Events (SSE). Backed by Redis",
+    "main": "index.js",
+    "scripts": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sudhirj/squire.git"
+    },
+    "keywords": [
+        "sse",
+        "server",
+        "sent",
+        "events",
+        "pub",
+        "sub"
+    ],
+    "author": "Sudhir Jonathan",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/sudhirj/squire/issues"
+    },
+    "homepage": "https://github.com/sudhirj/squire",
+    "dependencies": {
+        "redis": "*",
+        "hiredis": "*"
+    }
+}
