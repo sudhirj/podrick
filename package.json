@@ -4,7 +4,7 @@
     "description": "Podrick is a PubSub system that works via HTTP Server Sent Events (SSE). Backed by Redis",
     "main": "index.js",
     "scripts": {
-        "test": "test"
+
     },
     "repository": {
         "type": "git",
@@ -26,6 +26,12 @@
     "homepage": "https://github.com/sudhirj/podrick",
     "dependencies": {
         "redis": "*",
-        "hiredis": "*"
+        "hiredis": "*",
+        "minimist": "*",
+        "underscore": "*"
+    },
+    "devDependencies": {
+        "jsfmt": "*",
+        "simply-deferred": "*"
     }
 }

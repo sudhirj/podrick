@@ -1,0 +1,17 @@
+<!doctype html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+</head>
+<script>
+var conn = new EventSource('http://localhost:8989/subscribe/abcd1234');
+conn.onmessage = function(e) {
+  console.log("MESSAGE", e);
+};
+conn.onerror = function(e) {
+  console.log("ERROR", e);
+};
+conn.onopen = function(e) {
+  console.log("OPEN", e);
+};
+
+</script>
