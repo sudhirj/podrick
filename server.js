@@ -1,7 +1,25 @@
 var http = require('http');
 var _ = require('underscore');
 
+var argv = require('minimist')(process.argv.slice(2));
+
+var redis = require("redis")
+
+var port = argv.port || 8989;
+var redisHost = argv.rhost || 'localhost';
+var redisPort = argv.rport || 6379;
+
+var redisSubscriber = redis.createClient(redisPort, redisHost);
+var redisPublisher = redis.createClient(redisPort, redisHost);
+
+
 var CONNECTION_REGISTER = {};
+
+redisSubscriber.psubscribe("*");
+redisSubscriber.on("pmessage", function(pattern, channel, message) {
+    publish(channel);
+});
+
 
 var ping = function(connection) {
     connection.write('id: ' + Date.now() + '\n');
@@ -53,9 +71,9 @@ var server = http.createServer(function(req, res) {
     }
 
     if (action === 'publish') {
-        publish(channel);
+        redisPublisher.publish(channel, Date.now());
         res.end();
     }
 });
 
-server.listen(8989);
+server.listen(port);

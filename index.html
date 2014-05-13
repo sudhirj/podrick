@@ -3,15 +3,26 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
 </head>
 <script>
-var conn = new EventSource('http://localhost:8989/subscribe/abcd1234');
-conn.onmessage = function(e) {
-  console.log("MESSAGE", e);
+var conn1 = new EventSource('http://localhost:8989/subscribe/abcd1234');
+conn1.onmessage = function(e) {
+  console.log("MESSAGE1", e);
 };
-conn.onerror = function(e) {
-  console.log("ERROR", e);
+conn1.onerror = function(e) {
+  console.log("ERROR1", e);
 };
-conn.onopen = function(e) {
-  console.log("OPEN", e);
+conn1.onopen = function(e) {
+  console.log("OPEN1", e);
+};
+
+var conn2 = new EventSource('http://localhost:8999/subscribe/abcd1234');
+conn2.onmessage = function(e) {
+  console.log("MESSAGE2", e);
+};
+conn2.onerror = function(e) {
+  console.log("ERROR2", e);
+};
+conn2.onopen = function(e) {
+  console.log("OPEN2", e);
 };
 
 </script>
