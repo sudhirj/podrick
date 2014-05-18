@@ -32,6 +32,8 @@
     },
     "devDependencies": {
         "jsfmt": "*",
-        "simply-deferred": "*"
+        "simply-deferred": "*",
+        "eventsource": "*",
+        "request": "*"
     }
 }

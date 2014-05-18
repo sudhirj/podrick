@@ -20,7 +20,6 @@ redisSubscriber.on("pmessage", function(pattern, channel, message) {
     publish(channel);
 });
 
-
 var ping = function(connection) {
     connection.write('id: ' + Date.now() + '\n');
     connection.write('data: ' + 'PING' + '\n\n');
