@@ -11,7 +11,7 @@ var host = argv.host || 'http://localhost:8989';
 var timeout = argv.timeout || 2000;
 var maxTopics = argv.topics || 10;
 var maxConns = argv.conns || 10;
-var rate = argv.rate || 1;
+var rate = argv.rate || 1000;
 
 http.globalAgent.maxSockets = maxTopics * maxConns + rate;
 

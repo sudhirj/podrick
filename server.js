@@ -55,7 +55,6 @@ var subscribe = function(connection, channel) {
 var publish = function(channel) {
     var connections = getChannelRegister(channel);
     for (var i = connections.length - 1; i >= 0; i--) {
-        console.log(connections[i].closed);
         ping(connections[i]);
     };
 }
@@ -75,4 +74,16 @@ var server = http.createServer(function(req, res) {
     }
 });
 
+var reap = function(key) {
+    CONNECTION_REGISTER[key] = _.reject(CONNECTION_REGISTER[key], function(conn) {
+        return conn.closed;
+    });
+};
+
+var reapRegister = function() {
+    _.map(_.keys(CONNECTION_REGISTER), function(key) {
+        _.defer(reap, key);
+    });
+};
+setInterval(reapRegister, 1000);
 server.listen(port);
